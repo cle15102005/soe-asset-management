@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/soe_asset_db
+    username: soe_admin
+    password: soe_password
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        ddl-auto: validate
+
+logging:
+  level:
+    vn.edu.hust.soict.soe: DEBUG

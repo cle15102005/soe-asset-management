@@ -1,6 +1,6 @@
 # Handover · Liquidation · Reporting — `handover/` `liquidation/` `audit/` `report/`
 
-**Owner:** M5
+**Owner:** M4
 **Feature scope:** HL-01 to HL-04 · RP-01 to RP-03
 
 ---

@@ -33,4 +33,4 @@ Before anyone writes a frontend page or backend service that crosses module boun
 4. **Pagination format** (use `PageResponse<T>` from `common/`)
 5. **Error response format** (use `ApiResponse<T>` from `common/`)
 
-M4 (frontend) is blocked on types until this is done. Prioritize `api-spec.md` in Week 2.
+M5 (frontend) is blocked on types until this is done. Prioritize `api-spec.md` in Week 2.

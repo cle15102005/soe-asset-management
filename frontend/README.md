@@ -1,13 +1,13 @@
 # Frontend — React + TypeScript
 
-**Owner:** M4
+**Owner:** M5
 **Stack:** React 18 · TypeScript · Vite · Ant Design · Axios · Zustand (or Redux Toolkit)
 
 ---
 
 ## What This Layer Does
 
-The frontend is the single UI for all modules. M4 is responsible for the entire `frontend/` directory — building all pages and wiring them to the backend APIs delivered by M1, M2, M3, and M5.
+The frontend is the single UI for all modules. M4 is responsible for the entire `frontend/` directory — building all pages and wiring them to the backend APIs delivered by M1, M2, M3, and M4.
 
 ---
 
@@ -32,8 +32,8 @@ src/
 3. **Module by module** — build pages in this order as backends become ready:
    - Fixed Assets (M2 delivers first)
    - Consumable Stock (M3)
-   - Handover & Liquidation (M5)
-   - Reports & Audit Log (M5)
+   - Handover & Liquidation (M4)
+   - Reports & Audit Log (M4)
    * Before running, copy .env.example to .env: cp .env.example .env
    
 

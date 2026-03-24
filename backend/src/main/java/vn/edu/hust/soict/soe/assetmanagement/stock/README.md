@@ -9,10 +9,9 @@
 
 Manages consumable materials and depreciable resources used by different departments:
 - **CS-01** — Maintain a catalogue of materials with technical specs and units of measure
-- **CS-02** — Record stock receipts (materials entering the warehouse)
-- **CS-03** — Record stock issues (materials distributed to departments)
-- **CS-04** — Track real-time stock balance and departmental usage
-
+- **CS-02** — Record stock issues (materials distributed to departments)
+- **CS-03** — Track real-time stock balance and departmental usage
+- **CS-04** — Record stock receipts (materials entering the warehouse)
 ---
 
 ## Files to Build

@@ -11,8 +11,8 @@ A standardized platform for managing fixed assets, consumable stock, handovers, 
 | **M1** | Project Manager · Backend Foundation | Auth, RBAC, DB schema, config, shared infra |
 | **M2** | Fixed Assets Module | FA-01 to FA-04 — asset CRUD, depreciation |
 | **M3** | Consumable Stock Module | CS-01 to CS-04 — materials, stock transactions |
-| **M4** | Frontend (All Modules) | React + TypeScript + Ant Design UI |
-| **M5** | Handover · Liquidation · Reporting | HL-01 to HL-04, RP-01 to RP-03 |
+| **M4** | Handover · Liquidation · Reporting | HL-01 to HL-04, RP-01 to RP-03 |
+| **M5** | Frontend (All Modules) | React + TypeScript + Ant Design UI |
 
 ---
 
@@ -20,8 +20,8 @@ A standardized platform for managing fixed assets, consumable stock, handovers, 
 
 ```
 soe-asset-management/
-├── backend/        → Spring Boot REST API      [M1 foundation, M2/M3/M5 modules]
-├── frontend/       → React + TypeScript (Vite) [M4]
+├── backend/        → Spring Boot REST API      [M1 foundation, M2/M3/M4 modules]
+├── frontend/       → React + TypeScript (Vite) [M5]
 └── docs/           → API spec, DB schema, diagrams [shared]
 ```
 
@@ -61,9 +61,9 @@ main                        ← production-ready only (PR required)
 foundation/auth             ← M1
 fixed-assets/[feature]      ← M2   e.g. fixed-assets/depreciation-engine
 stock/[feature]             ← M3   e.g. stock/receipt-transaction
-frontend/[feature]          ← M4   e.g. frontend/asset-list-page
-handover/[feature]          ← M5   e.g. handover/approval-workflow
-report/[feature]            ← M5   e.g. report/excel-export
+handover/[feature]          ← M4   e.g. handover/approval-workflow
+report/[feature]            ← M4   e.g. report/excel-export
+frontend/[feature]          ← M5   e.g. frontend/asset-list-page
 ```
 
 **Rules:**

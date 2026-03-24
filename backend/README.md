@@ -1,6 +1,6 @@
 # Backend — Spring Boot
 
-**Owner:** M1 sets up the foundation. M2, M3, M5 build their modules on top of it.
+**Owner:** M1 sets up the foundation. M2, M3, M4 build their modules on top of it.
 
 ---
 
@@ -29,15 +29,15 @@ src/main/java/vn/edu/hust/soict/soe/assetmanagement/
 ├── asset/          → Fixed assets + depreciation             [M2]
 ├── stock/          → Materials + stock transactions          [M3]
 │
-├── handover/       → Handover requests & approval flow       [M5]
-├── liquidation/    → Liquidation requests & approval flow    [M5]
-├── audit/          → Audit log queries                       [M5]
-└── report/         → Asset & stock report generation         [M5]
+├── handover/       → Handover requests & approval flow       [M4]
+├── liquidation/    → Liquidation requests & approval flow    [M4]
+├── audit/          → Audit log queries                       [M4]
+└── report/         → Asset & stock report generation         [M4]
 ```
 
 ---
 
-## Module Development Guide (M2, M3, M5)
+## Module Development Guide (M2, M3, M4)
 
 Each module follows the **same 4-layer pattern**. Do not deviate.
 
@@ -68,8 +68,8 @@ Migrations live in `src/main/resources/db/migration/` and run automatically via 
 | `V1__create_users_roles.sql` | users, roles, managing_units tables | M1 |
 | `V2__create_assets.sql` | assets, asset_history tables | M2 |
 | `V3__create_stock.sql` | materials, stock_transactions tables | M3 |
-| `V4__create_handover_liquidation.sql` | handover & liquidation tables | M5 |
-| `V5__create_audit_log.sql` | audit_log table | M5 |
+| `V4__create_handover_liquidation.sql` | handover & liquidation tables | M4 |
+| `V5__create_audit_log.sql` | audit_log table | M4 |
 | `V6__seed_data.sql` | test/demo data | M1 |
 
 > **Important:** Never edit an existing migration file after it has been committed. Add a new versioned file instead (e.g. `V7__...`).
@@ -95,8 +95,8 @@ Each module owner writes unit tests for their own services.
 test/java/vn/edu/soe/assetmanagement/
 ├── asset/    → AssetServiceTest, DepreciationServiceTest   [M2]
 ├── stock/    → MaterialServiceTest, StockTransactionServiceTest [M3]
-├── handover/ → HandoverServiceTest                         [M5]
-└── report/   → ReportServiceTest                          [M5]
+├── handover/ → HandoverServiceTest                         [M4]
+└── report/   → ReportServiceTest                          [M4]
 ```
 
 Run all tests: `mvn test`

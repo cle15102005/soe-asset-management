@@ -9,8 +9,8 @@
 
 Manages the full lifecycle of fixed assets and machinery owned by the SOE:
 - **FA-01** — Register a new fixed asset with full technical profile
-- **FA-02** — Update asset details and track status changes (in-use, under-repair, retired)
-- **FA-03** — Calculate and record periodic depreciation
+- **FA-02** — Calculate and record periodic depreciation
+- **FA-03** — Update asset details and track status changes (in-use, under-repair, retired)
 - **FA-04** — View asset history and audit trail
 
 ---
