@@ -1,23 +1,88 @@
 # SOE Asset Management System
 
-## Prerequisites
-* Node.js (v18+)
-* Docker Desktop
-* Java 17+ & Maven
+A standardized platform for managing fixed assets, consumable stock, handovers, and liquidations for State-Owned Enterprises (SOEs), ensuring compliance with national accounting and equipment oversight regulations.
 
-## How to run locally
+---
 
-**1. Start the Database**
-```bash
-docker-compose up -d
+## Team & Ownership
+
+| Member | Role | Responsible For |
+|--------|------|-----------------|
+| **M1** | Project Manager · Backend Foundation | Auth, RBAC, DB schema, config, shared infra |
+| **M2** | Fixed Assets Module | FA-01 to FA-04 — asset CRUD, depreciation |
+| **M3** | Consumable Stock Module | CS-01 to CS-04 — materials, stock transactions |
+| **M4** | Frontend (All Modules) | React + TypeScript + Ant Design UI |
+| **M5** | Handover · Liquidation · Reporting | HL-01 to HL-04, RP-01 to RP-03 |
+
+---
+
+## Project Structure
+
+```
+soe-asset-management/
+├── backend/        → Spring Boot REST API      [M1 foundation, M2/M3/M5 modules]
+├── frontend/       → React + TypeScript (Vite) [M4]
+└── docs/           → API spec, DB schema, diagrams [shared]
 ```
 
-**2. Start the Frontend**
+---
+
+## Getting Started
+
+### Prerequisites
+- Java 17+, Maven 3.8+
+- Node.js 18+, npm 9+
+- Docker & Docker Compose
+- PostgreSQL (or run via Docker)
+
+### Run the full stack locally
 ```bash
-cd frontend
-npm install
-npm run dev
+docker-compose up --build
 ```
 
-**3. Start the Backend**
-Open the `backend` folder in IntelliJ IDEA and run `SoeAssetManagementApplication.java`.
+- Backend API → `http://localhost:8080`
+- Frontend    → `http://localhost:5173`
+
+### Run individually
+```bash
+# Backend
+cd backend && mvn spring-boot:run
+
+# Frontend
+cd frontend && npm install && npm run dev
+```
+
+---
+
+## Git Workflow
+
+```
+main                        ← production-ready only (PR required)
+foundation/auth             ← M1
+fixed-assets/[feature]      ← M2   e.g. fixed-assets/depreciation-engine
+stock/[feature]             ← M3   e.g. stock/receipt-transaction
+frontend/[feature]          ← M4   e.g. frontend/asset-list-page
+handover/[feature]          ← M5   e.g. handover/approval-workflow
+report/[feature]            ← M5   e.g. report/excel-export
+```
+
+**Rules:**
+1. Never push directly to `main`
+2. Open a Pull Request and get at least one review before merging
+3. Branch names must follow the convention above
+4. Write meaningful commit messages: `feat:`, `fix:`, `chore:`, `docs:`
+
+---
+
+## Key Docs
+
+| Document | Location | Owner |
+|----------|----------|-------|
+| API Specification | `docs/api-spec.md` | M1 (all contribute) |
+| Database Schema | `docs/database-schema.md` | M1 |
+| ERD Diagram | `docs/diagrams/erd.png` | M1 |
+| Architecture Diagram | `docs/diagrams/architecture.png` | Shared |
+| Deployment Guide | `docs/deployment-guide.md` | M5 |
+| Test Plan | `docs/test-plan.md` | M5 |
+
+> **Week 2 milestone:** API spec and TypeScript interfaces must be agreed upon by all members before module development begins.
