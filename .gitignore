@@ -1,0 +1,19 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.iml
+
+# Node/React
+node_modules/
+npm-debug.log*
+
+# Spring Boot / Java
+backend/target/
+backend/build/
+backend/.mvn/
+backend/src/main/resources/application-dev.yml
