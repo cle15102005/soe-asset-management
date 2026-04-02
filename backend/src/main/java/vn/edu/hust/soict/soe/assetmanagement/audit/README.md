@@ -1,7 +1,7 @@
 # Handover · Liquidation · Reporting — `handover/` `liquidation/` `audit/` `report/`
 
 **Owner:** M4
-**Feature scope:** HL-01 to HL-04 · RP-01 to RP-03
+**Feature scope:** HL-01 to HL-03 · RP-01 to RP-03
 
 ---
 
@@ -9,10 +9,9 @@
 
 ### Handover & Liquidation (HL)
 Formalizes the transfer and disposal of state-owned assets with a complete approval trail:
-- **HL-01** — Submit a handover request for an asset between units
-- **HL-02** — Approve or reject a handover; auto-update asset's managing unit on approval
-- **HL-03** — Submit a liquidation request for a retired/damaged asset
-- **HL-04** — Approve or reject a liquidation; auto-set asset status to `RETIRED`
+- **HL-01** — Structured asset handover workflow: initiation → department head approval → receiving unit confirmation → final record update; each step timestamped and user-attributed
+- **HL-02** — Liquidation request and approval chain: department → asset manager → director/board; capture justification, valuation, disposal method (auction, scrap, donation)
+- **HL-03** — Digital handover record generation: printable/exportable `Biên bản bàn giao` meeting state document standards with digital signature support
 
 ### Reporting (RP)
 Provides management-level visibility across all modules:
