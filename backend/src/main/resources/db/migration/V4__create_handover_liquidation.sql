@@ -1,7 +1,5 @@
 -- ============================================================
 -- V4__create_handover_liquidation.sql
--- Author: Le Viet Cuong (M1)
--- Module owner: Linh (M4)
 -- Requirements: HL-01, HL-02, HL-03
 -- ============================================================
 
@@ -125,7 +123,7 @@ CREATE INDEX idx_liquidation_asset  ON liquidation_requests(asset_id);
 CREATE INDEX idx_liquidation_status ON liquidation_requests(status);
 CREATE INDEX idx_liquidation_unit   ON liquidation_requests(requesting_unit_id);
 
--- Note for Linh (M4):
+-- Note for Linh:
 -- When a liquidation is COMPLETED:
 --   1. Update assets SET status = 'LIQUIDATED', status_changed_at = NOW()
 --   2. Write a row to asset_history with event_type = 'LIQUIDATED'

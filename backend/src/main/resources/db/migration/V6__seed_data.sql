@@ -1,17 +1,15 @@
 -- ============================================================
 -- V6__seed_data.sql
--- Author: Le Viet Cuong (M1)
 -- Description: Sample data for development and testing
--- Roles match Bảng 2.6 — R-01 to R-05
 -- ============================================================
 
 -- ============================================================
 -- Managing units
 -- ============================================================
 INSERT INTO managing_units (id, code, name, description) VALUES
-    ('00000000-0000-0000-0000-000000000001', 'HQ',    'Ban Giám đốc',                'Head office'),
-    ('00000000-0000-0000-0000-000000000002', 'PHKT',  'Phòng Hành chính - Kỹ thuật', 'Administration & Technical dept'),
-    ('00000000-0000-0000-0000-000000000003', 'PKTCN', 'Phòng Kế toán - Tài chính',   'Finance & Accounting dept'),
+    ('00000000-0000-0000-0000-000000000001', 'HQ',    'Ban Giám đốc',                 'Head office'),
+    ('00000000-0000-0000-0000-000000000002', 'PHKT',  'Phòng Hành chính - Kỹ thuật',  'Administration & Technical dept'),
+    ('00000000-0000-0000-0000-000000000003', 'PKTCN', 'Phòng Kế toán - Tài chính',    'Finance & Accounting dept'),
     ('00000000-0000-0000-0000-000000000004', 'PKD',   'Phòng Kinh doanh',             'Business dept'),
     ('00000000-0000-0000-0000-000000000005', 'PKHO',  'Phòng Kho',                    'Warehouse / Storage dept');
 
@@ -63,7 +61,7 @@ INSERT INTO users (id, username, password_hash, full_name, email, is_active) VAL
      TRUE);
 
 -- ============================================================
--- Assign roles to users (matching R-01 to R-05 exactly)
+-- Assign roles to users
 -- ============================================================
 INSERT INTO user_roles (user_id, role_id)
 SELECT '10000000-0000-0000-0000-000000000001', id FROM roles WHERE code = 'SYSTEM_ADMIN'
@@ -80,11 +78,11 @@ SELECT '10000000-0000-0000-0000-000000000005', id FROM roles WHERE code = 'FINAN
 -- Assign users to managing units
 -- ============================================================
 INSERT INTO user_units (user_id, unit_id) VALUES
-    ('10000000-0000-0000-0000-000000000001', '00000000-0000-0000-0000-000000000001'), -- admin      → HQ
-    ('10000000-0000-0000-0000-000000000002', '00000000-0000-0000-0000-000000000002'), -- asset mgr  → PHKT
-    ('10000000-0000-0000-0000-000000000003', '00000000-0000-0000-0000-000000000005'), -- warehouse  → PKHO
-    ('10000000-0000-0000-0000-000000000004', '00000000-0000-0000-0000-000000000001'), -- approver   → HQ
-    ('10000000-0000-0000-0000-000000000005', '00000000-0000-0000-0000-000000000003'); -- finance    → PKTCN
+    ('10000000-0000-0000-0000-000000000001', '00000000-0000-0000-0000-000000000001'), -- admin      => HQ
+    ('10000000-0000-0000-0000-000000000002', '00000000-0000-0000-0000-000000000002'), -- asset mgr  => PHKT
+    ('10000000-0000-0000-0000-000000000003', '00000000-0000-0000-0000-000000000005'), -- warehouse  => PKHO
+    ('10000000-0000-0000-0000-000000000004', '00000000-0000-0000-0000-000000000001'), -- approver   => HQ
+    ('10000000-0000-0000-0000-000000000005', '00000000-0000-0000-0000-000000000003'); -- finance    => PKTCN
 
 -- ============================================================
 -- Storage locations
@@ -94,7 +92,7 @@ INSERT INTO storage_locations (id, code, name, unit_id) VALUES
     ('20000000-0000-0000-0000-000000000002', 'KHO-02', 'Kho Văn phòng', '00000000-0000-0000-0000-000000000005');
 
 -- ============================================================
--- Sample fixed asset (for Hai — FA module testing)
+-- Sample fixed asset (for FA module testing)
 -- ============================================================
 INSERT INTO assets (
     id, asset_code, name, category_id, managing_unit_id,
@@ -121,7 +119,7 @@ INSERT INTO assets (
 );
 
 -- ============================================================
--- Sample material (for Huy — CS module testing)
+-- Sample material (for CS module testing)
 -- ============================================================
 INSERT INTO materials (
     id, material_code, name, category_id,

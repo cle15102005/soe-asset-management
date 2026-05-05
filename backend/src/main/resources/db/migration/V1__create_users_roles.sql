@@ -1,10 +1,5 @@
 -- ============================================================
--- V1__create_users_roles.sql
--- Author: Le Viet Cuong (M1)
 -- Description: Users, roles, managing units
--- Roles based on: Bảng 2.6 — System actors and roles (Optimized)
--- R-01 SYSTEM_ADMIN | R-02 ASSET_MANAGER | R-03 WAREHOUSE
--- R-04 APPROVING_AUTH | R-05 FINANCE_AUDIT
 -- ============================================================
 
 -- Managing units (departments / subsidiary units of the SOE)
@@ -20,7 +15,6 @@ CREATE TABLE managing_units (
     created_by  VARCHAR(100)
 );
 
--- Roles — exactly 5 roles per Bảng 2.6
 CREATE TABLE roles (
     id          SERIAL PRIMARY KEY,
     code        VARCHAR(50)  NOT NULL UNIQUE,
@@ -53,7 +47,7 @@ INSERT INTO roles (code, name, description) VALUES
 CREATE TABLE users (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     username        VARCHAR(100) NOT NULL UNIQUE,
-    password_hash   VARCHAR(255) NOT NULL,
+    password_hash   VARCHAR(255) NOT NULL, -- bcrypt hash of the user's password
     full_name       VARCHAR(255) NOT NULL,
     email           VARCHAR(255) UNIQUE,
     phone           VARCHAR(20),
@@ -68,14 +62,14 @@ CREATE TABLE users (
 CREATE TABLE user_roles (
     user_id     UUID    NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     role_id     INTEGER NOT NULL REFERENCES roles(id) ON DELETE CASCADE,
-    PRIMARY KEY (user_id, role_id)
+    PRIMARY KEY (user_id, role_id) -- composite primary key to prevent duplicate role assignments
 );
 
 -- User unit assignments
 CREATE TABLE user_units (
     user_id     UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     unit_id     UUID NOT NULL REFERENCES managing_units(id) ON DELETE CASCADE,
-    PRIMARY KEY (user_id, unit_id)
+    PRIMARY KEY (user_id, unit_id) -- composite primary key to prevent duplicate unit assignments
 );
 
 -- Indexes

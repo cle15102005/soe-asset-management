@@ -1,7 +1,5 @@
 -- ============================================================
 -- V5__create_audit_log.sql
--- Author: Le Viet Cuong (M1)
--- Module owner: Linh (M4)
 -- Requirement: RP-01
 -- ============================================================
 
@@ -49,7 +47,7 @@ CREATE TABLE audit_logs (
 CREATE RULE no_update_audit_log AS ON UPDATE TO audit_logs DO INSTEAD NOTHING;
 CREATE RULE no_delete_audit_log AS ON DELETE TO audit_logs DO INSTEAD NOTHING;
 
--- Indexes (optimised for the most common report queries)
+-- Indexes
 CREATE INDEX idx_audit_module       ON audit_logs(module);
 CREATE INDEX idx_audit_action       ON audit_logs(action);
 CREATE INDEX idx_audit_record_id    ON audit_logs(record_id);
@@ -58,7 +56,7 @@ CREATE INDEX idx_audit_performed_at ON audit_logs(performed_at DESC);
 CREATE INDEX idx_audit_performed_by ON audit_logs(performed_by);
 
 -- ============================================================
--- Note for Linh (M4) — AuditLogService.java
+-- Note for Linh:
 -- ============================================================
 -- Define ONE public method that every other module calls:
 --

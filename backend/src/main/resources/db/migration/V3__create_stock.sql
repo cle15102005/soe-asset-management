@@ -1,7 +1,5 @@
 -- ============================================================
 -- V3__create_stock.sql
--- Author: Le Viet Cuong (M1)
--- Module owner: Huy (M3)
 -- Requirements: CS-01, CS-02, CS-03, CS-04
 -- ============================================================
 
@@ -22,7 +20,7 @@ INSERT INTO material_categories (code, name) VALUES
     ('SPARE',       'Phụ tùng thay thế'),
     ('OTHER',       'Vật tư khác');
 
--- Material catalogue — CS-01
+-- Material catalogue CS-01
 CREATE TABLE materials (
     id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     material_code       VARCHAR(50)     NOT NULL UNIQUE,   -- e.g. VT-2024-001
@@ -65,7 +63,7 @@ CREATE TABLE stock_transactions (
     quantity                NUMERIC(12, 3)  NOT NULL CHECK (quantity > 0),
     unit_of_measure         VARCHAR(30)     NOT NULL,   -- copied from material at time of transaction
     unit_price              NUMERIC(18, 2),             -- price at time of transaction
-    total_value             NUMERIC(18, 2),             -- quantity * unit_price
+    total_value             NUMERIC(18, 2),             -- = quantity * unit_price
 
     -- CS-04: departmental allocation (required for ISSUE transactions)
     requesting_department_id UUID           REFERENCES managing_units(id),
@@ -95,7 +93,7 @@ CREATE INDEX idx_stock_tx_type          ON stock_transactions(transaction_type);
 CREATE INDEX idx_stock_tx_dept          ON stock_transactions(requesting_department_id);
 CREATE INDEX idx_stock_tx_date          ON stock_transactions(document_date);
 
--- Note for Huy (M3):
+-- Note for Huy:
 -- CS-03 real-time balance query:
 --   SELECT
 --     material_id,
