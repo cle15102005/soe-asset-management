@@ -1,2 +1,39 @@
-/mvnw text eol=lf
-*.cmd text eol=crlf
+# .gitattributes
+# Normalize line endings for all team members regardless of OS.
+# Windows users get CRLF locally, Unix/Mac users get LF locally.
+# The repository always stores LF.
+
+# Default — normalize all text files
+* text=auto
+
+# Explicitly LF for source files (Java, SQL, YAML, properties, Markdown)
+*.java        text eol=lf
+*.sql         text eol=lf
+*.yml         text eol=lf
+*.yaml        text eol=lf
+*.properties  text eol=lf
+*.xml         text eol=lf
+*.json        text eol=lf
+*.md          text eol=lf
+*.txt         text eol=lf
+*.sh          text eol=lf
+*.ts          text eol=lf
+*.tsx         text eol=lf
+*.js          text eol=lf
+*.jsx         text eol=lf
+*.css         text eol=lf
+*.html        text eol=lf
+*.env         text eol=lf
+Dockerfile    text eol=lf
+.gitignore    text eol=lf
+
+# Binary files — never convert
+*.png         binary
+*.jpg         binary
+*.jpeg        binary
+*.gif         binary
+*.ico         binary
+*.jar         binary
+*.class       binary
+*.zip         binary
+*.pdf         binary

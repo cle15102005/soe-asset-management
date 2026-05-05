@@ -23,7 +23,7 @@ INSERT INTO users (id, username, password_hash, full_name, email, is_active) VAL
     -- R-01: System Administrator
     ('10000000-0000-0000-0000-000000000001',
      'admin',
-     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
+     '$2a$10$El5iUoHNxSoRSXAxsATEX.i4roir7kBGqo9o1aiTq19oWiCCUpqy2',
      'Lê Việt Cường',
      'admin@soe.vn',
      TRUE),
@@ -31,7 +31,7 @@ INSERT INTO users (id, username, password_hash, full_name, email, is_active) VAL
     -- R-02: Asset Manager
     ('10000000-0000-0000-0000-000000000002',
      'asset.manager',
-     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
+     '$2a$10$El5iUoHNxSoRSXAxsATEX.i4roir7kBGqo9o1aiTq19oWiCCUpqy2',
      'Đinh Hà Hải',
      'asset.manager@soe.vn',
      TRUE),
@@ -39,7 +39,7 @@ INSERT INTO users (id, username, password_hash, full_name, email, is_active) VAL
     -- R-03: Warehouse / Stock Officer
     ('10000000-0000-0000-0000-000000000003',
      'warehouse',
-     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
+     '$2a$10$El5iUoHNxSoRSXAxsATEX.i4roir7kBGqo9o1aiTq19oWiCCUpqy2',
      'Hoàng Quốc Huy',
      'warehouse@soe.vn',
      TRUE),
@@ -47,15 +47,15 @@ INSERT INTO users (id, username, password_hash, full_name, email, is_active) VAL
     -- R-04: Approving Authority
     ('10000000-0000-0000-0000-000000000004',
      'approver',
-     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
+     '$2a$10$El5iUoHNxSoRSXAxsATEX.i4roir7kBGqo9o1aiTq19oWiCCUpqy2',
      'Nguyễn Ngọc Linh',
      'approver@soe.vn',
-     TRUE),
+     TRUE), 
 
     -- R-05: Finance & Audit Officer
     ('10000000-0000-0000-0000-000000000005',
      'finance.audit',
-     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
+     '$2a$10$El5iUoHNxSoRSXAxsATEX.i4roir7kBGqo9o1aiTq19oWiCCUpqy2',
      'Trần Trung Hiếu',
      'finance.audit@soe.vn',
      TRUE);
@@ -64,15 +64,15 @@ INSERT INTO users (id, username, password_hash, full_name, email, is_active) VAL
 -- Assign roles to users
 -- ============================================================
 INSERT INTO user_roles (user_id, role_id)
-SELECT '10000000-0000-0000-0000-000000000001', id FROM roles WHERE code = 'SYSTEM_ADMIN'
+SELECT '10000000-0000-0000-0000-000000000001'::uuid, id FROM roles WHERE code = 'SYSTEM_ADMIN'
 UNION ALL
-SELECT '10000000-0000-0000-0000-000000000002', id FROM roles WHERE code = 'ASSET_MANAGER'
+SELECT '10000000-0000-0000-0000-000000000002'::uuid, id FROM roles WHERE code = 'ASSET_MANAGER'
 UNION ALL
-SELECT '10000000-0000-0000-0000-000000000003', id FROM roles WHERE code = 'WAREHOUSE'
+SELECT '10000000-0000-0000-0000-000000000003'::uuid, id FROM roles WHERE code = 'WAREHOUSE'
 UNION ALL
-SELECT '10000000-0000-0000-0000-000000000004', id FROM roles WHERE code = 'APPROVING_AUTH'
+SELECT '10000000-0000-0000-0000-000000000004'::uuid, id FROM roles WHERE code = 'APPROVING_AUTH'
 UNION ALL
-SELECT '10000000-0000-0000-0000-000000000005', id FROM roles WHERE code = 'FINANCE_AUDIT';
+SELECT '10000000-0000-0000-0000-000000000005'::uuid, id FROM roles WHERE code = 'FINANCE_AUDIT';
 
 -- ============================================================
 -- Assign users to managing units
