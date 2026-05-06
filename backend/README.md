@@ -1,7 +1,5 @@
 # Backend — Spring Boot
 
-**Owner:** M1 sets up the foundation. M2, M3, M4 build their modules on top of it.
-
 ---
 
 ## What This Layer Does
@@ -37,9 +35,9 @@ src/main/java/vn/edu/hust/soict/soe/assetmanagement/
 
 ---
 
-## Module Development Guide (M2, M3, M4)
+## Module Development Guide
 
-Each module follows the **same 4-layer pattern**. Do not deviate.
+Each module follows the **same 4-layer pattern**.
 
 ```
 [your-module]/
@@ -72,8 +70,6 @@ Migrations live in `src/main/resources/db/migration/` and run automatically via 
 | `V5__create_audit_log.sql` | audit_log table | M4 |
 | `V6__seed_data.sql` | test/demo data | M1 |
 
-> **Important:** Never edit an existing migration file after it has been committed. Add a new versioned file instead (e.g. `V7__...`).
-
 ---
 
 ## Configuration
@@ -82,8 +78,6 @@ Migrations live in `src/main/resources/db/migration/` and run automatically via 
 |------|---------|
 | `application.yml` | Base config (port, JPA, Flyway) |
 | `application-dev.yml` | Local dev overrides (DB URL, dev credentials) |
-
-Run with dev profile: `mvn spring-boot:run -Dspring-boot.run.profiles=dev`
 
 ---
 
