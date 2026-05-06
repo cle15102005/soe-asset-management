@@ -66,12 +66,6 @@ report/[feature]            ← M4   e.g. report/excel-export
 frontend/[feature]          ← M5   e.g. frontend/asset-list-page
 ```
 
-**Rules:**
-1. Never push directly to `main`
-2. Open a Pull Request and get at least one review before merging
-3. Branch names must follow the convention above
-4. Write meaningful commit messages: `feat:`, `fix:`, `chore:`, `docs:`
-
 ---
 
 ## Key Docs
@@ -84,5 +78,3 @@ frontend/[feature]          ← M5   e.g. frontend/asset-list-page
 | Architecture Diagram | `docs/diagrams/architecture.png` | Shared |
 | Deployment Guide | `docs/deployment-guide.md` | M5 |
 | Test Plan | `docs/test-plan.md` | M5 |
-
-> **Week 2 milestone:** API spec and TypeScript interfaces must be agreed upon by all members before module development begins.
