@@ -39,6 +39,7 @@ public class ManagingUnit extends BaseEntity {
     @JoinColumn(name = "parent_id")
     private ManagingUnit parent;
 
+    @Builder.Default
     @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
 }
