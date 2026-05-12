@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Optional;
+import java.util.Objects;
 
 /**
  * Enables JPA auditing so that BaseEntity fields
@@ -24,12 +25,13 @@ public class AuditConfig {
                     .getContext()
                     .getAuthentication();
 
-            if (auth == null || !auth.isAuthenticated()
-                    || auth.getPrincipal().equals("anonymousUser")) {
-                return Optional.of("system");
+            String name = "system";
+            if (auth != null && auth.isAuthenticated() 
+                    && !"anonymousUser".equals(auth.getPrincipal())) {
+                name = auth.getName();
             }
 
-            return Optional.of(auth.getName());
+            return Objects.requireNonNull(Optional.of(name != null ? name : "system"));
         };
     }
 }
