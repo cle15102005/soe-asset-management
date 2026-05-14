@@ -18,6 +18,7 @@ import vn.edu.hust.soict.soe.assetmanagement.user.repository.UserRepository;
 
 import java.util.List;
 import java.util.UUID;
+import org.springframework.lang.NonNull;
 
 /**
  * User service.
@@ -53,7 +54,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional(readOnly = true)
-    public UserDto getUserById(UUID id) {
+    public UserDto getUserById(@NonNull UUID id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Không tìm thấy người dùng với id: " + id));
@@ -90,7 +91,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public void deactivateUser(UUID id) {
+    public void deactivateUser(@NonNull UUID id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Không tìm thấy người dùng với id: " + id));
