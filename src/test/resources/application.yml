@@ -1,0 +1,35 @@
+# ========================================
+# TEST CONFIGURATION - H2 In-Memory Database
+# ========================================
+spring:
+  application:
+    name: soe-asset-management-test
+  
+  # H2 In-Memory Database (không cần PostgreSQL)
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+  
+  h2:
+    console:
+      enabled: true
+  
+  # Tắt Flyway trong test
+  flyway:
+    enabled: false
+
+logging:
+  level:
+    root: WARN
+    com.soe.assetmanagement: INFO

@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: soe-asset-management
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/soe_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+        format_sql: 'true'  # ← ADD QUOTES
+  
+  flyway:
+    locations: classpath:db/migration
+    baseline-on-migrate: 'true'  # ← ADD QUOTES
+    
+  h2:
+    console:
+      enabled: 'true'  # ← ADD QUOTES
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.soe.assetmanagement: DEBUG
