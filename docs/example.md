@@ -46,4 +46,12 @@ On January 1, 2024, an enterprise purchased a new server system with the followi
 
 **Detailed Schedule:**
 
-YearOpening Net Book Value (VND)Declining Balance Depr. (40%)Average Straight-Line Depr.Actual Depreciation Expense (VND)Closing Accumulated Depreciation (VND)1 (2024)255,000,000102,000,00051,000,000 (Divide by 5)102,000,000102,000,0002 (2025)153,000,00061,200,00038,250,000 (Divide by 4)61,200,000163,200,0003 (2026)91,800,00036,720,00030,600,000 (Divide by 3)36,720,000199,920,0004 (2027)55,080,00022,032,00027,540,000 (Divide by 2)27,540,000227,460,0005 (2028)27,540,000-27,540,000 (Divide by 1)27,540,000255,000,000Crossover Explanation: In Year 4, the depreciation expense calculated using the declining balance method (22,032,000 VND) is lower than the average expense divided evenly over the remaining 2 years (27,540,000 VND). Complying with Circular 45, from Year 4 onwards, the enterprise is required to switch to the straight-line method (27,540,000 VND) to ensure full capital recovery by the end of Year 5.
+| Year | Opening Net Book Value (VND) | Declining Balance Depr. (40%) | Average Straight-Line Depr. | Actual Depreciation Expense (VND) | Closing Accumulated Depreciation (VND) |
+|---|---|---|---|---|---|
+| 1 (2024) | 255,000,000 | 102,000,000 | 51,000,000 (Divide by 5) | 102,000,000 | 102,000,000 |
+| 2 (2025) | 153,000,000 | 61,200,000 | 38,250,000 (Divide by 4) | 61,200,000 | 163,200,000 | 
+| 3 (2026) | 91,800,000 | 36,720,000 | 30,600,000 (Divide by 3) | 36,720,000 | 199,920,000 | 
+| 4 (2027) | 55,080,000 | 22,032,000 | 27,540,000 (Divide by 2) | 27,540,000 | 227,460,000 | 
+| 5 (2028) | 27,540,000 | - | 27,540,000 (Divide by 1) | 27,540,000 | 255,000,000 | 
+
+**Crossover Explanation**: In Year 4, the depreciation expense calculated using the declining balance method (22,032,000 VND) is lower than the average expense divided evenly over the remaining 2 years (27,540,000 VND). Complying with Circular 45, from Year 4 onwards, the enterprise is required to switch to the straight-line method (27,540,000 VND) to ensure full capital recovery by the end of Year 5.
