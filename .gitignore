@@ -16,4 +16,8 @@ npm-debug.log*
 backend/target/
 backend/build/
 backend/.mvn/
-backend/src/main/resources/application-dev.yml
+backend/src/main/resources/application-dev.yaml
+backend/src/main/resources/application.yaml 
+
+# Docker secrets
+.env

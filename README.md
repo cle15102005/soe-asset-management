@@ -33,7 +33,7 @@ soe-asset-management/
 - Java 17+, Maven 3.8+
 - Node.js 18+, npm 9+
 - Docker & Docker Compose
-- PostgreSQL (or run via Docker)
+- PostgreSQL run via Docker
 
 ### Run the full stack locally
 
