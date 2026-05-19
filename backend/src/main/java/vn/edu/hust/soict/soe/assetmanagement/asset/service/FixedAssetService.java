@@ -6,9 +6,14 @@ import vn.edu.hust.soict.soe.assetmanagement.asset.entity.FixedAsset;
 import vn.edu.hust.soict.soe.assetmanagement.asset.enums.AssetStatus;
 import vn.edu.hust.soict.soe.assetmanagement.asset.repository.AssetHistoryRepository;
 import vn.edu.hust.soict.soe.assetmanagement.asset.repository.FixedAssetRepository;
+import vn.edu.hust.soict.soe.assetmanagement.audit.service.AuditLogService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNullFields;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import io.micrometer.common.lang.NonNull;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -18,6 +23,11 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Fixed asset service.
+ * Handles asset registration, depreciation calculation, and status updates.
+ */
+
 @Service
 public class FixedAssetService {
 
@@ -26,6 +36,9 @@ public class FixedAssetService {
 
     @Autowired
     private AssetHistoryRepository assetHistoryRepository;
+
+    @Autowired
+    private AuditLogService auditLogService;
 
     /**
      * Retrieves all fixed assets from the database.
@@ -79,6 +92,16 @@ public class FixedAssetService {
             null, 
             "Asset created with code: " + savedAsset.getAssetCode(),
             savedAsset.getCreatedBy()
+        );
+
+        auditLogService.log(
+            "ASSET",                                         // String module
+            "CREATE",                                        // String action
+            savedAsset.getId().toString(),                          // String recordId
+            savedAsset.getAssetCode(),                              // String recordCode
+            "{}",                                         // String oldValue 
+            "{\"name\": \"" + savedAsset.getName() + "\"}",         // String newValu
+            "Registered new fixed asset"                // String description
         );
 
         return savedAsset;
@@ -245,6 +268,16 @@ public class FixedAssetService {
             performedBy
         );
 
+        auditLogService.log(
+            "ASSET",                         // String module
+            "UPDATE_STATUS",                 // String action
+            updatedAsset.getId().toString(),         // String recordId
+            updatedAsset.getAssetCode(),             // String recordCode
+            "{\"status\": \"" + oldStatus + "\"}",   // String oldValue
+            "{\"status\": \"" + newStatus + "\"}",   // String newValue
+            "Changed asset status to " + newStatus   // String description
+        );
+        
         return updatedAsset;
     }
 

@@ -6,7 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
-
+/**
+ * Fixed asset repository.
+ * Provides CRUD operations and custom queries for the `assets` table.
+ */
 @Repository
 public interface FixedAssetRepository extends JpaRepository<FixedAsset, UUID> {
     
