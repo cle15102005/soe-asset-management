@@ -6,7 +6,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+/**
+ * Fixed asset entity — maps to the `assets` table.
+ * Represents physical equipment including technical specs and financial values.
+ */
 @Entity
 @Table(name = "assets")
 public class FixedAsset {

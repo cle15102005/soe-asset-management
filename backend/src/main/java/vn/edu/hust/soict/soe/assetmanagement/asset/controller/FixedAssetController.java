@@ -12,11 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.NonNull;
 import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Fixed asset endpoints.
+ * Handles GET, POST, PATCH for /api/v1/fixed-assets.
+ */
 @RestController
 @RequestMapping("/api/v1/fixed-assets")
 @Tag(name = "Fixed Assets", description = "Fixed Asset Management Module (FA-01 -> FA-04)")
@@ -38,7 +42,7 @@ public class FixedAssetController {
 
     @Operation(summary = "Get asset details", description = "Retrieve full technical parameters and current financial status by ID")
     @GetMapping("/{id}")
-    public ResponseEntity<FixedAsset> getAssetById(@PathVariable UUID id) {
+    public ResponseEntity<FixedAsset> getAssetById(@PathVariable @NonNull UUID id) {
         return ResponseEntity.ok(fixedAssetService.calculateCurrentDepreciation(id));
     }
 
@@ -53,7 +57,7 @@ public class FixedAssetController {
 
     @Operation(summary = "Calculate depreciation", description = "Calculate accumulated depreciation and remaining book value per Circular 45/2013/TT-BTC")
     @GetMapping("/{id}/depreciation")
-    public ResponseEntity<FixedAsset> calculateDepreciation(@PathVariable UUID id) {
+    public ResponseEntity<FixedAsset> calculateDepreciation(@PathVariable @NonNull UUID id) {
         return ResponseEntity.ok(fixedAssetService.calculateCurrentDepreciation(id));
     }
 
@@ -62,7 +66,7 @@ public class FixedAssetController {
     @Operation(summary = "Update operational status", description = "Change asset status (maintenance, liquidation...) and save history log (FA-03)")
     @PatchMapping("/{id}/status")
     public ResponseEntity<FixedAsset> updateStatus(
-            @PathVariable UUID id, 
+            @PathVariable @NonNull UUID id, 
             @RequestParam AssetStatus newStatus, 
             @RequestParam String reason) {
         
@@ -72,7 +76,7 @@ public class FixedAssetController {
 
     @Operation(summary = "Get asset lifecycle history", description = "Retrieve immutable log of status changes and reassignments (FA-04)")
     @GetMapping("/{id}/history")
-    public ResponseEntity<List<AssetHistory>> getAssetHistory(@PathVariable UUID id) {
+    public ResponseEntity<List<AssetHistory>> getAssetHistory(@PathVariable @NonNull UUID id) {
         List<AssetHistory> history = assetHistoryRepository.findByAssetIdOrderByPerformedAtDesc(id);
         return ResponseEntity.ok(history);
     }

@@ -3,7 +3,11 @@ package vn.edu.hust.soict.soe.assetmanagement.asset.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+/**
+ * Asset history entity — maps to the `asset_history` table.
+ * Append-only ledger tracking all lifecycle events and status changes for an asset.
+ * Different from audit logs, this is focused on asset-specific events.
+ */
 @Entity
 @Table(name = "asset_history")
 public class AssetHistory {
@@ -22,7 +26,7 @@ public class AssetHistory {
     private String description;
 
     @Column(name = "old_value", columnDefinition = "TEXT")
-    private String oldValue; // Thường lưu JSON string
+    private String oldValue; 
 
     @Column(name = "new_value", columnDefinition = "TEXT")
     private String newValue;
