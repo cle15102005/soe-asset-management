@@ -5,8 +5,8 @@
 
 -- ============================================================
 -- HANDOVER — HL-01
--- Workflow: DRAFT → PENDING_APPROVAL → APPROVED → CONFIRMED → COMPLETED
---           or any step → REJECTED
+-- Workflow: DRAFT -> PENDING_APPROVAL -> APPROVED -> CONFIRMED -> COMPLETED
+--           or any step -> REJECTED
 -- ============================================================
 CREATE TABLE handover_requests (
     id                      UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -60,8 +60,8 @@ CREATE TABLE handover_requests (
 
 -- ============================================================
 -- LIQUIDATION — HL-02, HL-03
--- Workflow: DRAFT → PENDING_MANAGER → PENDING_DIRECTOR → APPROVED → COMPLETED
---           or any step → REJECTED
+-- Workflow: DRAFT -> PENDING_MANAGER -> PENDING_DIRECTOR -> APPROVED -> COMPLETED
+--           or any step -> REJECTED
 -- ============================================================
 CREATE TABLE liquidation_requests (
     id                      UUID PRIMARY KEY DEFAULT gen_random_uuid(),

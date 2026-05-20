@@ -73,3 +73,6 @@ lerna-debug.log*
 # Keep the example template
 !.env.example
 !frontend/.env.example
+
+#AI configs
+CLAUDE.md
