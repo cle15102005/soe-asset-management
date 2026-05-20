@@ -76,3 +76,6 @@ lerna-debug.log*
 
 #AI configs
 CLAUDE.md
+.claudeignore
+
+
